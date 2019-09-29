@@ -22,12 +22,7 @@
 .carousel {
 	background:#F5F5F5;
 }
-.ib {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	align:middle;
-}
+
 
 a {
   color: black;
@@ -35,13 +30,21 @@ a {
 }
 
 		</style>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148961334-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148961334-1');
+</script>
+
 	</head>
 	<script>
 
 		function load(){
-			console.log($('#header'));
 			$('.spacer')[0].style.height = (window.screen.availHeight * .1 - $('#header')[0].style.height) + "px";
-	console.log($('.spacer')[0].style.height );
 		}
 
 function resizeScreen(){
@@ -60,7 +63,7 @@ function resizeScreen(){
 					<h2>WEI YUAN | 袁薇</h2>
 				</div>
 				<div class="col" style='text-align:right'>
-					<a href="about.html">About</a>
+					<a href="about">About</a>
 				</div>
 			</div>
 
@@ -116,15 +119,18 @@ function resize(idx){
 
 	if(ratio > mh / mw) {
 		img.height = mh;
-		img.width = mh / ratio;
+		const w = mh / ratio;
+		img.width = w;
+		img.style.marginLeft = (mw - w) / 2 + "px";
+		img.style.marginRight = (mw - w) / 2 + "px";
 	}
 	else
 	{
 		img.width =  mw;
 		const h = mw * ratio;
 		img.height = h;
-		divList[idx].style.marginTop = (mh - h) / 2 + "px";
-		divList[idx].style.marginBottom = (mh - h) / 2 + "px";
+		img.style.marginTop = (mh - h) / 2 + "px";
+		img.style.marginBottom = (mh - h) / 2 + "px";
 	}
 	img.style.visibility = "visible";
 
@@ -136,10 +142,8 @@ function loadImage(idx){
 	img.style.visibility = "hidden";
 	img.onload = function(){resize(idx)};
 	img.src = 'img/' + idx + '.jpg';
-	img.setAttribute('class', 'ib');
   
 	imgCache[idx] = img;
-	console.log(idx);
 	divList[idx].append(img);
 }
 
@@ -147,8 +151,8 @@ var currentImg = 0;
 
 loadImage(0);
 loadImage(1);
+loadImage(2);
 loadImage(imgCount-1);
-
 
 
 $('#imgs').on('slide.bs.carousel', function (e) {
@@ -159,7 +163,6 @@ $('#imgs').on('slide.bs.carousel', function (e) {
 	loadImage(e.to + 2 % imgCount);
 	loadImage((e.to - 1 + imgCount) % imgCount);
 	loadImage((e.to - 2 + imgCount) % imgCount);
-	console.log(e)
 })
 		</script>
 
