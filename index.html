@@ -29,37 +29,38 @@
 	align:middle;
 }
 
+
 		</style>
 	</head>
 	<script>
 
 		function load(){
-
-			$('.spacer')[0].style.height = $(window).innerHeight() * .1;
-
+			console.log($('#header'));
+			$('.spacer')[0].style.height = (window.screen.availHeight * .1 - $('#header')[0].style.height) + "px";
+	console.log($('.spacer')[0].style.height );
 		}
+
+function resizeScreen(){
+	load();
+	resize(currentImg);
+}
+
 	</script>
 
 	<body onload="load()">
 
 		<div class="container">
-			<div class="row">
+			
+			<div class="row" id="header">
 				<div class="col-6">
 					<h2>WEI YUAN | 袁薇</h2>
 				</div>
-
-
 				<div class="col" style='text-align:right'>
-					About
+					<a href="about.html">About</a>
 				</div>
-
-				<div class="col" style='text-align:right'>
-					Contact
-				</div>
-
 			</div>
 
-			<div class='spacer' style='height:100px'></div>
+			<div class='spacer'></div>
 			<div id="imgs"  class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner">
 				</div>
@@ -101,8 +102,8 @@ for(i = 0; i < imgCount; i++){
 }
 
 function resize(idx){
-	mh = $(window).innerHeight() * .8
-	mw = c.width()
+	mh = window.screen.availHeight * .6;
+	mw = c.width();
 
 	const img = imgCache[idx];
 	divList[idx].height = mh;
@@ -132,8 +133,11 @@ function loadImage(idx){
 	img.setAttribute('class', 'ib');
   
 	imgCache[idx] = img;
+	console.log(idx);
 	divList[idx].append(img);
 }
+
+var currentImg = 0;
 
 loadImage(0);
 loadImage(1);
@@ -144,10 +148,11 @@ loadImage(imgCount-1);
 $('#imgs').on('slide.bs.carousel', function (e) {
 	// do something…
   resize(e.to);
+  currentImg = e.to;
 	loadImage(e.to + 1 % imgCount);
 	loadImage(e.to + 2 % imgCount);
-	loadImage(e.to - 1 % imgCount);
-	loadImage(e.to - 2 % imgCount);
+	loadImage((e.to - 1 + imgCount) % imgCount);
+	loadImage((e.to - 2 + imgCount) % imgCount);
 	console.log(e)
 })
 		</script>
