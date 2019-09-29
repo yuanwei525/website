@@ -1,127 +1,158 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<script src="https://kit.fontawesome.com/deeab325ab.js" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/deeab325ab.js" crossorigin="anonymous"></script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<style>
+		<style>
 
 .carousel-indicators li {
-  /* add a box shadow to the indicators to make them visible on white backgrounds */
-  box-shadow: 0 1px 0.4rem rgba(0, 0, 0, 0.5);
+	/* add a box shadow to the indicators to make them visible on white backgrounds */
+	box-shadow: 0 1px 0.4rem rgba(0, 0, 0, 0.5);
 }
 
 .carousel {
-  background:#F5F5F5;
+	background:#F5F5F5;
 }
 .ib {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	align:middle;
 }
 
-</style>
-</head>
-<script>
-
-function load(){
-
-$('.spacer')[0].style.height = $(window).innerHeight() * .1;
-
-mh = $(window).innerHeight() * .8
-mw = 1000; // $(document).width()
-mw = $('.ib').width()
-
-
-$(".ib").each(function(){
-ratio = this.height / this.width
-console.log(ratio)
-
-if(ratio > mh / mw) {
-  this.height = mh;
-  this.width = mh / ratio;
-}
-else
-{
-  this.width =  mw;
-  this.height =  mw * ratio;
-}
-})
-}
-</script>
-
-<body onload="load()">
-
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-    <h2>  WEI YUAN | 袁薇</h2>
-    </div>
-
-
-    <div class="col" style='text-align:right'>
-      About
-    </div>
-
-    <div class="col" style='text-align:right'>
-      Contact
-    </div>
-
- </div>
-
-<div class='spacer' style='height:100px'></div>
-<div id="imgs"  class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-  </div>
-  <a class="carousel-control-prev" href="#imgs" role="button" data-slide="prev">
-<i class="fas fa-chevron-circle-left fa-2x" aria-hidden="true"></i>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#imgs" role="button" data-slide="next">
-  <i class="fas fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
-  
-  <span class="sr-only">Next</span>
-  </a>
-</div>
-
-</div>
-
-</div>
-
+		</style>
+	</head>
 	<script>
-		var imgCount = 76;
-		var c = $('.carousel-inner');
-		for(i = 0; i < imgCount; i++){
-			var div = document.createElement('div');
-			if (i ==0) {
-				div.setAttribute('class', 'carousel-item active');
-			}
-			else
-			{
-				div.setAttribute('class', 'carousel-item');
-			}
 
-			var img = document.createElement('img');
-			img.src = 'img/' + i + '.jpg';
-			img.setAttribute('class', 'ib');
-			div.append(img);
-			c.append(div);
+		function load(){
+
+			$('.spacer')[0].style.height = $(window).innerHeight() * .1;
+
 		}
-$('#imgs').on('slide.bs.carousel', function (e) {
-  // do something…
-	console.log(e)
-})
 	</script>
 
+	<body onload="load()">
 
-</body>
+		<div class="container">
+			<div class="row">
+				<div class="col-6">
+					<h2>WEI YUAN | 袁薇</h2>
+				</div>
+
+
+				<div class="col" style='text-align:right'>
+					About
+				</div>
+
+				<div class="col" style='text-align:right'>
+					Contact
+				</div>
+
+			</div>
+
+			<div class='spacer' style='height:100px'></div>
+			<div id="imgs"  class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner">
+				</div>
+				<a class="carousel-control-prev" href="#imgs" role="button" data-slide="prev">
+					<i class="fas fa-chevron-circle-left fa-2x" aria-hidden="true"></i>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#imgs" role="button" data-slide="next">
+					<i class="fas fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
+
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+
+		</div>
+
+		</div>
+
+		<script>
+
+var imgCount = 76;
+var c = $('.carousel-inner');
+
+var divList = [];
+var imgCache = [];
+
+for(i = 0; i < imgCount; i++){
+	var div = document.createElement('div');
+	if (i ==0) {
+		div.setAttribute('class', 'carousel-item active');
+	}
+	else
+	{
+		div.setAttribute('class', 'carousel-item');
+	}
+  divList.push(div);
+  imgCache.push(null);
+	c.append(div);
+}
+
+function resize(idx){
+	mh = $(window).innerHeight() * .8
+	mw = c.width()
+
+	const img = imgCache[idx];
+	divList[idx].height = mh;
+
+	ratio = img.height / img.width
+
+	if(ratio > mh / mw) {
+		img.height = mh;
+		img.width = mh / ratio;
+	}
+	else
+	{
+		img.width =  mw;
+		const h = mw * ratio;
+		img.height = h;
+		divList[idx].style.marginTop = (mh - h) / 2 + "px";
+		divList[idx].style.marginBottom = (mh - h) / 2 + "px";
+	}
+
+};
+
+function loadImage(idx){
+	if (imgCache[idx] != null) return;
+	var img = document.createElement('img');
+	img.onload = function(){resize(idx)};
+	img.src = 'img/' + idx + '.jpg';
+	img.setAttribute('class', 'ib');
+  
+	imgCache[idx] = img;
+	divList[idx].append(img);
+}
+
+loadImage(0);
+loadImage(1);
+loadImage(imgCount-1);
+
+
+
+$('#imgs').on('slide.bs.carousel', function (e) {
+	// do something…
+  resize(e.to);
+	loadImage(e.to + 1 % imgCount);
+	loadImage(e.to + 2 % imgCount);
+	loadImage(e.to - 1 % imgCount);
+	loadImage(e.to - 2 % imgCount);
+	console.log(e)
+})
+		</script>
+
+
+	</body>
 
 </html>
