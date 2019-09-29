@@ -47,6 +47,8 @@ a {
 			$('.spacer')[0].style.height = (window.screen.availHeight * .1 - $('#header')[0].style.height) + "px";
 		}
 
+load();
+
 function resizeScreen(){
 	load();
 	resize(currentImg);
@@ -54,7 +56,7 @@ function resizeScreen(){
 
 	</script>
 
-	<body onload="load()">
+	<body onload="resize(0);" onresize="resizeScreen()">
 
 		<div class="container">
 			
