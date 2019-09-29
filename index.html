@@ -126,12 +126,14 @@ function resize(idx){
 		divList[idx].style.marginTop = (mh - h) / 2 + "px";
 		divList[idx].style.marginBottom = (mh - h) / 2 + "px";
 	}
+	img.style.visibility = "visible";
 
 };
 
 function loadImage(idx){
 	if (imgCache[idx] != null) return;
 	var img = document.createElement('img');
+	img.style.visibility = "hidden";
 	img.onload = function(){resize(idx)};
 	img.src = 'img/' + idx + '.jpg';
 	img.setAttribute('class', 'ib');
