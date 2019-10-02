@@ -47,7 +47,6 @@ a {
 			$('.spacer')[0].style.height = (window.screen.availHeight * .1 - $('#header')[0].style.height) + "px";
 		}
 
-load();
 
 function resizeScreen(){
 	load();
@@ -56,7 +55,7 @@ function resizeScreen(){
 
 	</script>
 
-	<body onload="resize(0);" onresize="resizeScreen()">
+	<body onload="load();resize(0);" onresize="resizeScreen()">
 
 		<div class="container">
 			
@@ -89,7 +88,7 @@ function resizeScreen(){
 		</div>
 
 		<script>
-
+load();
 var imgCount = 76;
 var c = $('.carousel-inner');
 
