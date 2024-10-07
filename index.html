@@ -70,9 +70,9 @@ function resizeScreen(){
     Current Work
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" onclick="init('france')" href="#">France</a>
-    <a class="dropdown-item" onclick="init('cambridge')" href="#">Cambridge</a>
-    <a class="dropdown-item" onclick="init('current')" href="#">Current Work</a>
+    <a class="dropdown-item" onclick="init('France')" href="#">France</a>
+    <a class="dropdown-item" onclick="init('Cambridge')" href="#">Cambridge</a>
+    <a class="dropdown-item" onclick="init('Current Work')" href="#">Current Work</a>
   </div>
 </div>
 				</div>
@@ -109,14 +109,15 @@ var divList = [];
 var imgCache = [];
 var imgCount = 0;
 
-const image_count = {'current': 24, 'cambridge': 33, 'france':34}
-
+const image_count = {'Current Work': 24, 'Cambridge': 33, 'France':34}
+const image_dirs = {'Current Work': 'current', 'France': 'france', 'Cambridge': 'cambridge'}
 var work = 'current';
 
 
 var currentImg = 0;
 function init(group) {
   document.querySelector(".carousel-inner").innerHTML='' 
+  document.querySelector("#dropdownMenuButton").innerHTML=group;
   work = group;
   divList = [];
   imgCache = [];
@@ -176,13 +177,13 @@ function loadImage(idx){
 	var img = document.createElement('img');
 	img.style.visibility = "hidden";
 	img.onload = function(){resize(idx)};
-	img.src = 'img/' + work +'/' + idx + '.jpg';
+	img.src = 'img/' + image_dirs[work] +'/' + idx + '.jpg';
   
 	imgCache[idx] = img;
 	divList[idx].append(img);
 }
 
-init('current');
+init('Current Work');
 
 
 
